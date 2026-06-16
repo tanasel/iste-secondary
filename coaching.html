@@ -14,6 +14,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
+  <script src="assets/plan.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -39,9 +40,10 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
-        <a href="standards.html">The 7 Standards</a>
+        <a href="standards.html">Standards</a>
         <a href="ai.html">AI in the Classroom</a>
         <a href="coaching.html" aria-current="page">Coaching</a>
+        <a href="plan.html">Plan it</a>
         <a href="index.html#for-ish">For ISH</a>
         <a href="about.html">About</a>
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
@@ -99,16 +101,17 @@
           <h2 id="self-check-heading">Where are you? — a 60-second self-check</h2>
           <p>Pick the one that sounds like you.</p>
         </div>
-        <div class="self-check">
-          <div class="check-option"><p>I'm curious but not sure where to start.</p></div>
-          <div class="check-option"><p>I use the tools but not the standards.</p></div>
-          <div class="check-option"><p>I plan lessons around a standard.</p></div>
-          <div class="check-option"><p>I help colleagues do the same.</p></div>
+        <div class="self-check" role="radiogroup" aria-labelledby="self-check-heading" data-stage-picker>
+          <button class="check-option" type="button" role="radio" aria-checked="false" data-stage-option="aware"><span>I'm curious but not sure where to start</span></button>
+          <button class="check-option" type="button" role="radio" aria-checked="false" data-stage-option="connecting"><span>I use the tools but not the standards</span></button>
+          <button class="check-option" type="button" role="radio" aria-checked="false" data-stage-option="embedding"><span>I plan lessons around a standard</span></button>
+          <button class="check-option" type="button" role="radio" aria-checked="false" data-stage-option="coaching"><span>I help colleagues do the same</span></button>
         </div>
+        <article class="pathway-result" data-stage-result aria-live="polite" hidden></article>
       </div>
     </section>
 
-    <section class="section-block" aria-labelledby="lens-heading">
+    <section class="section-block" id="coach-lens" aria-labelledby="lens-heading">
       <div class="container">
         <div class="section-heading">
           <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>

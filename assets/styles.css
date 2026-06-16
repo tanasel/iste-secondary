@@ -469,6 +469,121 @@ ol{
   color:var(--ink);
 }
 
+.tool-card{
+  padding:1.25rem;
+  border-color:#111111;
+}
+
+.plan-form{
+  margin-bottom:var(--gap);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+
+.field-group{
+  display:grid;
+  gap:.42rem;
+}
+
+.field-group label{
+  color:var(--ink);
+  font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
+  font-weight:700;
+}
+
+.field-group select,
+.field-group input,
+.prompt-output{
+  width:100%;
+  min-height:48px;
+  padding:.7rem .78rem;
+  border:3px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--surface);
+  box-shadow:3px 3px 0 var(--line);
+  color:var(--ink);
+}
+
+.field-group input::placeholder{
+  color:var(--muted);
+  opacity:1;
+}
+
+.tool-error{
+  min-height:1.55rem;
+  margin:.85rem 0 1rem;
+  color:var(--ink);
+  font-weight:700;
+}
+
+.plan-results{
+  margin-top:var(--gap);
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--gap);
+}
+
+.activity-card,
+.prompt-card{
+  padding:1.25rem;
+}
+
+.activity-card{
+  border-color:#111111;
+  background:var(--standard-color);
+  color:#111111;
+}
+
+.activity-card h2,
+.activity-card p{
+  color:#111111;
+}
+
+.activity-card .standard-chip{
+  color:#FFFFFF;
+}
+.standard-chip{
+  display:inline-flex;
+  width:max-content;
+  max-width:100%;
+  margin-bottom:1rem;
+  padding:.32rem .6rem;
+  border:3px solid #111111;
+  background:#111111;
+  color:#FFFFFF;
+  font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
+  font-size:.95rem;
+  font-weight:700;
+  line-height:1.15;
+}
+
+.prompt-output{
+  min-height:280px;
+  margin:.25rem 0 1rem;
+  line-height:1.5;
+  resize:vertical;
+}
+
+.prompt-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+}
+
+.tool-note{
+  margin:.95rem 0 0;
+  color:var(--muted);
+  font-size:.95rem;
+  font-weight:700;
+}
+
 .hero-credit{
   margin:0;
   color:var(--muted);
@@ -512,7 +627,12 @@ ol{
 .pathway-card,
 .check-option,
 .cta-card,
-.practice-card{
+.practice-card,
+.tool-card,
+.activity-card,
+.prompt-card,
+.pathway-result,
+.roadmap-list li{
   border:3px solid var(--line);
   border-radius:var(--radius);
   background:var(--surface);
@@ -927,9 +1047,96 @@ ol{
   color:#111111;
 }
 
+.check-option{
+  width:100%;
+  min-height:44px;
+  color:var(--ink);
+  cursor:pointer;
+  text-align:left;
+}
+
+.check-option span{
+  display:block;
+  color:inherit;
+  font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
+  font-weight:700;
+  line-height:1.25;
+}
+
 .check-option:nth-child(even) p{
   color:#111111;
 }
+
+.check-option:nth-child(even) span{
+  color:#111111;
+}
+
+.check-option[aria-checked="true"]{
+  border-color:#111111;
+  background:var(--yellow);
+  box-shadow:3px 3px 0 var(--line);
+  color:#111111;
+}
+
+.pathway-result{
+  margin-top:var(--gap);
+  padding:1.25rem;
+  border-color:#111111;
+  background:var(--standard-color);
+  color:#111111;
+}
+
+.pathway-result h3,
+.pathway-result p,
+.pathway-result strong,
+.pathway-result a:not(.button){
+  color:#111111;
+}
+
+.pathway-result p{
+  max-width:70ch;
+}
+
+.pathway-result .start-links{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.25rem .55rem;
+}
+
+.pathway-result a:not(.button){
+  font-weight:700;
+  text-decoration-thickness:3px;
+  text-underline-offset:.18em;
+}
+
+.pathway-result .button-primary{
+  margin-top:.25rem;
+  background:var(--cyan);
+}
+
+.roadmap-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.85rem;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.roadmap-list li{
+  padding:1rem 1.1rem;
+  border-color:#111111;
+  color:#111111;
+  font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
+  font-weight:700;
+}
+
+.roadmap-list li:nth-child(1){ background:var(--cyan); }
+.roadmap-list li:nth-child(2){ background:var(--violet); }
+.roadmap-list li:nth-child(3){ background:var(--pink); }
+.roadmap-list li:nth-child(4){ background:var(--yellow); }
+.roadmap-list li:nth-child(5){ background:var(--lime); }
 
 .coach-lens{
   display:grid;
@@ -1047,6 +1254,8 @@ ol{
 .standard-card:active,
 .teaser-card:hover,
 .teaser-card:active,
+.check-option:hover,
+.check-option:active,
 .site-nav a:hover,
 .site-nav a:active,
 .menu-toggle:hover,
@@ -1060,6 +1269,8 @@ ol{
 .button:active,
 .teaser-card:hover,
 .teaser-card:active,
+.check-option:hover,
+.check-option:active,
 .menu-toggle:hover,
 .menu-toggle:active,
 .theme-toggle:hover,
@@ -1083,6 +1294,23 @@ ol{
   }
 
   .practice-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .form-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
+
+  .field-wide{
+    grid-column:span 3;
+  }
+
+  .result-grid{
+    grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items:start;
+  }
+
+  .roadmap-list{
     grid-template-columns:repeat(2, minmax(0, 1fr));
   }
 
@@ -1135,7 +1363,7 @@ ol{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:1080px){
   .menu-toggle{
     display:inline-flex;
   }
@@ -1237,11 +1465,13 @@ ol{
   .button:hover,
   .button:active,
   .standard-card:hover,
-  .standard-card:active,
-  .teaser-card:hover,
-  .teaser-card:active,
-  .site-nav a:hover,
-  .site-nav a:active,
+    .standard-card:active,
+    .teaser-card:hover,
+    .teaser-card:active,
+    .check-option:hover,
+    .check-option:active,
+    .site-nav a:hover,
+    .site-nav a:active,
   .menu-toggle:hover,
   .menu-toggle:active,
   .theme-toggle:hover,
@@ -1256,6 +1486,7 @@ ol{
   .standard-card,
   .button,
   .teaser-card,
+  .check-option,
   .menu-toggle,
   .theme-toggle,
   .skip-link{

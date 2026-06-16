@@ -1291,3 +1291,10 @@ ol{
   .standard-card.featured h3{ font-size:1.55rem; }
   .standard-card.featured .featured-extra{ font-size:1rem; max-width:42ch; }
 }
+
+/* Source note under the ISH callout box — clear the box's hard shadow + de-emphasise */
+.closing-line + .hero-credit{
+  margin-top:1.5rem;
+  font-weight:500;
+  font-size:.9rem;
+}

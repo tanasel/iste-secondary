@@ -105,6 +105,19 @@
     fallbackCopy(textarea, button);
   }
 
+  function openInTool(url, textarea, button) {
+    // Open synchronously inside the click gesture (avoids popup blocking), then copy.
+    window.open(url, "_blank", "noopener");
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(textarea.value).then(
+        function () {
+          setCopyLabel(button, "Prompt copied — paste it in");
+        },
+        function () {}
+      );
+    }
+  }
+
   function renderPlanResult(resultRegion, standard, subject, year, topic, activity) {
     var standardIndex = getStandardIndex(standard.key);
     var prompt = buildPrompt(standard, subject, year, topic, activity);
@@ -134,10 +147,24 @@
     });
     actions.appendChild(copyButton);
 
+    var magicButton = createElement("button", "button button-ghost", "Open in Magic School");
+    magicButton.type = "button";
+    magicButton.addEventListener("click", function () {
+      openInTool("https://app.magicschool.ai/tools", textarea, magicButton);
+    });
+    actions.appendChild(magicButton);
+
+    var geminiButton = createElement("button", "button button-ghost", "Open in Gemini");
+    geminiButton.type = "button";
+    geminiButton.addEventListener("click", function () {
+      openInTool("https://gemini.google.com/app", textarea, geminiButton);
+    });
+    actions.appendChild(geminiButton);
+
     var note = createElement(
       "p",
       "tool-note",
-      "Paste into Magic School AI, Gemini or another school-approved tool. Never include real student data."
+      "Tip: clicking a tool copies the prompt and opens it in a new tab — just paste (Cmd/Ctrl+V). Never include real student data."
     );
     promptCard.appendChild(promptHeading);
     promptCard.appendChild(textarea);

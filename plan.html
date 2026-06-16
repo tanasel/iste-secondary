@@ -71,6 +71,13 @@
         </div>
 
         <form class="tool-card plan-form" data-plan-tool novalidate>
+          <div class="programme-control">
+            <span class="programme-label" id="plan-programme-label">Programme</span>
+            <div class="programme-options" role="radiogroup" aria-labelledby="plan-programme-label" data-programme-picker>
+              <button class="programme-option" type="button" role="radio" aria-checked="true" data-programme-option="myp">MYP (Years 7–11)</button>
+              <button class="programme-option" type="button" role="radio" aria-checked="false" data-programme-option="dpcp">DP / CP (Years 12–13)</button>
+            </div>
+          </div>
           <div class="form-grid">
             <div class="field-group">
               <label for="plan-standard">Standard</label>
@@ -79,9 +86,9 @@
               </select>
             </div>
             <div class="field-group">
-              <label for="plan-subject">Subject</label>
-              <select id="plan-subject" name="subject" required>
-                <option value="">Loading subjects…</option>
+              <label for="plan-unit" data-unit-label>Subject</label>
+              <select id="plan-unit" name="unit" required>
+                <option value="">Loading units…</option>
               </select>
             </div>
             <div class="field-group">
@@ -91,8 +98,8 @@
               </select>
             </div>
             <div class="field-group field-wide">
-              <label for="plan-topic">Topic or unit (optional)</label>
-              <input id="plan-topic" name="topic" type="text" autocomplete="off" placeholder="e.g. climate systems, dystopian fiction, quadratic modelling">
+              <label for="plan-topic">Topic or context (optional)</label>
+              <input id="plan-topic" name="topic" type="text" autocomplete="off" placeholder="e.g. climate systems, extended essay question, performance concept">
             </div>
           </div>
           <p class="tool-error" data-plan-error aria-live="polite"></p>

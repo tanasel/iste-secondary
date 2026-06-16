@@ -43,6 +43,7 @@
       option.textContent = getLabel(item);
       select.appendChild(option);
     });
+    select.value = items.length ? getValue(items[0]) : "";
   }
 
   function findByKey(items, key) {
@@ -59,8 +60,22 @@
     return index >= 0 ? index + 1 : 1;
   }
 
-  function buildPrompt(standard, subject, year, topic, activity) {
-    return "Act as an experienced IB MYP " + subject.label + " teacher at an international secondary school. Design a single, ready-to-teach lesson for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "' — students " + standard.line + "." + (topic ? " Topic/context: " + topic + "." : "") + " Build the lesson around this activity idea: \"" + activity + "\". Include: a hook, a student-centred main task, formative checkpoints, success criteria tied to the standard, and one Approaches to Learning (ATL) skill it develops. Keep it practical and adaptable. Do not include or request any real student personal data.";
+  function clearPlanResult(resultRegion) {
+    clearElement(resultRegion);
+    resultRegion.hidden = true;
+  }
+
+  function buildPrompt(programme, standard, unit, year, topic, activity) {
+    var topicStr = topic ? " Topic/context: " + topic + "." : "";
+    if (unit.type === "task") {
+      var role = programme.key === "dpcp"
+        ? "an experienced IB Diploma Programme / Career-related Programme teacher or coordinator"
+        : "an experienced IB MYP coordinator";
+      var through = programme.key === "dpcp" ? "the " + unit.label : "the MYP " + unit.label;
+      return "Act as " + role + " at an international secondary school. Design a practical task or approach for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "' — students " + standard.line + " — through " + through + "." + topicStr + " Build it around this idea: \"" + activity + "\". Include: clear student instructions, formative checkpoints, success criteria tied to BOTH the standard and the relevant IB requirement (e.g. academic integrity, or the Extended Essay / CAS / Personal Project / Service / Reflective Project criteria), and the IB skills it develops. Keep it practical. Do not include or request any real student personal data.";
+    }
+
+    return "Act as an experienced IB MYP " + unit.label + " teacher at an international secondary school. Design a single, ready-to-teach lesson for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "' — students " + standard.line + "." + topicStr + " Build the lesson around this activity idea: \"" + activity + "\". Include: a hook, a student-centred main task, formative checkpoints, success criteria tied to the standard, and one Approaches to Learning (ATL) skill it develops. Keep it practical and adaptable. Do not include or request any real student personal data.";
   }
 
   function setCopyLabel(button, label) {
@@ -118,13 +133,13 @@
     }
   }
 
-  function renderPlanResult(resultRegion, standard, subject, year, topic, activity) {
+  function renderPlanResult(resultRegion, programme, standard, unit, year, topic, activity) {
     var standardIndex = getStandardIndex(standard.key);
-    var prompt = buildPrompt(standard, subject, year, topic, activity);
+    var prompt = buildPrompt(programme, standard, unit, year, topic, activity);
     var resultGrid = createElement("div", "result-grid");
 
     var activityCard = createElement("article", "activity-card s" + standardIndex);
-    var activityHeading = createElement("h2", null, "Try this in " + subject.label);
+    var activityHeading = createElement("h2", null, "Try this — " + unit.label);
     var standardChip = createElement("p", "standard-chip", "ISTE " + standard.num + " · " + standard.name);
     var activityText = createElement("p", null, activity);
     activityCard.appendChild(activityHeading);
@@ -190,14 +205,33 @@
     if (!form) return;
 
     var standardSelect = byId("plan-standard");
-    var subjectSelect = byId("plan-subject");
+    var unitSelect = byId("plan-unit");
+    var unitLabel = document.querySelector("[data-unit-label]");
     var yearSelect = byId("plan-year");
     var topicInput = byId("plan-topic");
     var error = document.querySelector("[data-plan-error]");
     var button = document.querySelector("[data-plan-submit]");
     var resultRegion = document.querySelector("[data-plan-results]");
+    var programmeGroup = document.querySelector("[data-programme-picker]");
+    var programmeButtons = programmeGroup
+      ? Array.prototype.slice.call(programmeGroup.querySelectorAll("[data-programme-option]"))
+      : [];
+    var currentProgramme = null;
 
-    if (!planData || !standardSelect || !subjectSelect || !yearSelect || !topicInput || !button || !resultRegion) {
+    if (
+      !planData ||
+      !planData.standards ||
+      !planData.programmes ||
+      !planData.activities ||
+      !standardSelect ||
+      !unitSelect ||
+      !unitLabel ||
+      !yearSelect ||
+      !topicInput ||
+      !button ||
+      !resultRegion ||
+      !programmeButtons.length
+    ) {
       if (error) error.textContent = "The Plan it data could not be loaded.";
       return;
     }
@@ -212,49 +246,112 @@
         return standard.num + " — " + standard.name;
       }
     );
-    populateSelect(
-      subjectSelect,
-      planData.subjects,
-      function (subject) {
-        return subject.key;
-      },
-      function (subject) {
-        return subject.label;
+
+    function setProgrammeButtonState(programmeKey) {
+      programmeButtons.forEach(function (programmeButton, index) {
+        var isSelected = programmeButton.getAttribute("data-programme-option") === programmeKey;
+        programmeButton.setAttribute("aria-checked", String(isSelected));
+        programmeButton.tabIndex = isSelected || (!programmeKey && index === 0) ? 0 : -1;
+      });
+    }
+
+    function setProgramme(programmeKey, clearResult) {
+      var programme = findByKey(planData.programmes, programmeKey) || planData.programmes[0];
+      if (!programme) return;
+
+      currentProgramme = programme;
+      unitLabel.textContent = programme.unitLabel;
+      setProgrammeButtonState(programme.key);
+      populateSelect(
+        unitSelect,
+        programme.units,
+        function (unit) {
+          return unit.key;
+        },
+        function (unit) {
+          return unit.label;
+        }
+      );
+      populateSelect(
+        yearSelect,
+        programme.years,
+        function (year) {
+          return year;
+        },
+        function (year) {
+          return year;
+        }
+      );
+
+      if (clearResult) {
+        if (error) error.textContent = "";
+        clearPlanResult(resultRegion);
       }
-    );
-    populateSelect(
-      yearSelect,
-      planData.years,
-      function (year) {
-        return year;
-      },
-      function (year) {
-        return year;
-      }
-    );
+    }
+
+    function moveProgrammeSelection(currentButton, direction) {
+      var currentIndex = programmeButtons.indexOf(currentButton);
+      if (currentIndex < 0) return;
+      var nextIndex = (currentIndex + direction + programmeButtons.length) % programmeButtons.length;
+      var nextButton = programmeButtons[nextIndex];
+      nextButton.focus();
+      setProgramme(nextButton.getAttribute("data-programme-option"), true);
+    }
 
     function generatePlan() {
+      var programme = currentProgramme;
       var standard = findByKey(planData.standards, standardSelect.value);
-      var subject = findByKey(planData.subjects, subjectSelect.value);
+      var unit = programme ? findByKey(programme.units, unitSelect.value) : null;
       var year = yearSelect.value;
       var topic = topicInput.value.trim();
 
-      if (!standard || !subject || !year) {
-        if (error) error.textContent = "Choose a standard, subject and year before planning.";
-        (standard ? subject ? yearSelect : subjectSelect : standardSelect).focus();
+      if (!programme || !standard || !unit || !year) {
+        if (error) error.textContent = "Choose a programme, standard, unit and year before planning.";
+        (programme ? standard ? unit ? yearSelect : unitSelect : standardSelect : programmeButtons[0]).focus();
         return;
       }
 
-      var activity = planData.activities[subject.key] && planData.activities[subject.key][standard.key];
+      var activity =
+        planData.activities[programme.key] &&
+        planData.activities[programme.key][unit.key] &&
+        planData.activities[programme.key][unit.key][standard.key];
       if (!activity) {
         if (error) error.textContent = "No activity is available for that combination yet.";
         return;
       }
 
       if (error) error.textContent = "";
-      renderPlanResult(resultRegion, standard, subject, year, topic, activity);
+      renderPlanResult(resultRegion, programme, standard, unit, year, topic, activity);
     }
 
+    programmeButtons.forEach(function (programmeButton) {
+      programmeButton.addEventListener("click", function () {
+        setProgramme(programmeButton.getAttribute("data-programme-option"), true);
+      });
+
+      programmeButton.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          event.preventDefault();
+          moveProgrammeSelection(programmeButton, 1);
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          event.preventDefault();
+          moveProgrammeSelection(programmeButton, -1);
+        } else if (event.key === "Home") {
+          event.preventDefault();
+          programmeButtons[0].focus();
+          setProgramme(programmeButtons[0].getAttribute("data-programme-option"), true);
+        } else if (event.key === "End") {
+          event.preventDefault();
+          programmeButtons[programmeButtons.length - 1].focus();
+          setProgramme(programmeButtons[programmeButtons.length - 1].getAttribute("data-programme-option"), true);
+        } else if (event.key === " " || event.key === "Enter") {
+          event.preventDefault();
+          setProgramme(programmeButton.getAttribute("data-programme-option"), true);
+        }
+      });
+    });
+
+    setProgramme("myp", false);
     button.addEventListener("click", generatePlan);
     topicInput.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {

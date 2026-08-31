@@ -72,10 +72,10 @@
         ? "an experienced IB Diploma Programme / Career-related Programme teacher or coordinator"
         : "an experienced IB MYP coordinator";
       var through = programme.key === "dpcp" ? "the " + unit.label : "the MYP " + unit.label;
-      return "Act as " + role + " at an international secondary school. Design a practical task or approach for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "' — students " + standard.line + " — through " + through + "." + topicStr + " Build it around this idea: \"" + activity + "\". Include: clear student instructions, formative checkpoints, success criteria tied to BOTH the standard and the relevant IB requirement (e.g. academic integrity, or the Extended Essay / CAS / Personal Project / Service / Reflective Project criteria), and the IB skills it develops. Keep it practical. Do not include or request any real student personal data.";
+      return "Act as " + role + " at an international secondary school. Design a practical task or approach for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "': students " + standard.line + ", through " + through + "." + topicStr + " Build it around this idea: \"" + activity + "\". Include: clear student instructions, formative checkpoints, success criteria tied to BOTH the standard and the relevant IB requirement (e.g. academic integrity, or the Extended Essay / CAS / Personal Project / Service / Reflective Project criteria), and the IB skills it develops. Keep it practical. Do not include or request any real student personal data.";
     }
 
-    return "Act as an experienced IB MYP " + unit.label + " teacher at an international secondary school. Design a single, ready-to-teach lesson for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "' — students " + standard.line + "." + topicStr + " Build the lesson around this activity idea: \"" + activity + "\". Include: a hook, a student-centred main task, formative checkpoints, success criteria tied to the standard, and one Approaches to Learning (ATL) skill it develops. Keep it practical and adaptable. Do not include or request any real student personal data.";
+    return "Act as an experienced IB MYP " + unit.label + " teacher at an international secondary school. Design a single, ready-to-teach lesson for " + year + " that develops the ISTE Standard " + standard.num + " '" + standard.name + "': students " + standard.line + "." + topicStr + " Build the lesson around this activity idea: \"" + activity + "\". Include: a hook, a student-centred main task, formative checkpoints, success criteria tied to the standard, and one Approaches to Learning (ATL) skill it develops. Keep it practical and adaptable. Do not include or request any real student personal data.";
   }
 
   function setCopyLabel(button, label) {
@@ -126,7 +126,7 @@
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(textarea.value).then(
         function () {
-          setCopyLabel(button, "Prompt copied — paste it in");
+          setCopyLabel(button, "Prompt copied. Paste it in");
         },
         function () {}
       );
@@ -139,7 +139,7 @@
     var resultGrid = createElement("div", "result-grid");
 
     var activityCard = createElement("article", "activity-card s" + standardIndex);
-    var activityHeading = createElement("h2", null, "Try this — " + unit.label);
+    var activityHeading = createElement("h2", null, "Try this: " + unit.label);
     var standardChip = createElement("p", "standard-chip", "ISTE " + standard.num + " · " + standard.name);
     var activityText = createElement("p", null, activity);
     activityCard.appendChild(activityHeading);
@@ -179,7 +179,7 @@
     var note = createElement(
       "p",
       "tool-note",
-      "Tip: clicking a tool copies the prompt and opens it in a new tab — just paste (Cmd/Ctrl+V). Never include real student data."
+      "Tip: clicking a tool copies the prompt and opens it in a new tab. Just paste (Cmd/Ctrl+V). Never include real student data."
     );
     promptCard.appendChild(promptHeading);
     promptCard.appendChild(textarea);
@@ -215,7 +215,7 @@
     var programmeGroup = document.querySelector("[data-programme-picker]");
     var programmeButtons = programmeGroup
       ? Array.prototype.slice.call(programmeGroup.querySelectorAll("[data-programme-option]"))
-      : [];
+     : [];
     var currentProgramme = null;
 
     if (
@@ -243,7 +243,7 @@
         return standard.key;
       },
       function (standard) {
-        return standard.num + " — " + standard.name;
+        return standard.num + " | " + standard.name;
       }
     );
 
@@ -351,7 +351,38 @@
       });
     });
 
-    setProgramme("myp", false);
+    var requestedProgramme = "myp";
+    var requestedStandard = "";
+    var requestedUnit = "";
+    var requestedYear = "";
+    var requestedTopic = "";
+
+    try {
+      var params = new URLSearchParams(window.location.search);
+      requestedProgramme = params.get("programme") || "myp";
+      requestedStandard = params.get("standard") || "";
+      requestedUnit = params.get("unit") || "";
+      requestedYear = params.get("year") || "";
+      requestedTopic = params.get("topic") || "";
+    } catch (error) {
+      requestedProgramme = "myp";
+    }
+
+    setProgramme(requestedProgramme, false);
+
+    if (findByKey(planData.standards, requestedStandard)) {
+      standardSelect.value = requestedStandard;
+    }
+    if (currentProgramme && findByKey(currentProgramme.units, requestedUnit)) {
+      unitSelect.value = requestedUnit;
+    }
+    if (currentProgramme && currentProgramme.years.indexOf(requestedYear) >= 0) {
+      yearSelect.value = requestedYear;
+    }
+    if (requestedTopic) {
+      topicInput.value = requestedTopic;
+    }
+
     button.addEventListener("click", generatePlan);
     topicInput.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
@@ -365,7 +396,7 @@
     aware: {
       name: "Aware",
       accent: "s1",
-      next: "pick ONE standard and try one tool with support — model it before you assess it.",
+      next: "pick ONE standard and try one tool with support. Model it before you assess it.",
       standards: [
         { label: "Empowered Learner", href: "standards.html#s1" },
         { label: "Digital Citizen", href: "standards.html#s2" }
@@ -387,7 +418,7 @@
     embedding: {
       name: "Embedding",
       accent: "s4",
-      next: "co-teach it with a colleague and check the look-fors — measure impact, not attendance.",
+      next: "co-teach it with a colleague and check the look-fors. Measure impact, not attendance.",
       standards: [
         { label: "Innovative Designer", href: "standards.html#s4" },
         { label: "Computational Thinker", href: "standards.html#s5" }
@@ -398,7 +429,7 @@
     coaching: {
       name: "Coaching",
       accent: "s7",
-      next: "run a short ISH Academy session and share the Plan it tool — coach to the ISTE Standards for Coaches.",
+      next: "run a short ISH Academy session and share the Plan it tool. Coach to the ISTE Standards for Coaches.",
       standards: [
         { label: "Global Collaborator", href: "standards.html#s7" },
         { label: "Digital Citizen", href: "standards.html#s2" }

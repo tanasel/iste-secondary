@@ -19,12 +19,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=20260831">
   <script src="assets/plan-data.js"></script>
   <script src="assets/app.js" defer></script>
-  <script src="assets/coordinator.js" defer></script>
+  <script src="assets/coordinator.js?v=20260831" defer></script>
 </head>
-<body class="coordinator-page">
+<body class="site-page page-standards coordinator-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -93,6 +93,16 @@
         </aside>
       </div>
     </section>
+
+    <nav class="page-jump-nav" aria-label="On this page">
+      <div class="container page-jump-inner">
+        <span>On this page</span>
+        <a href="#overview">Seven at a glance</a>
+        <a href="#subject-lens">Subject lens</a>
+        <a href="#department-routine">15-minute routine</a>
+        <a href="#s1">Detailed reference</a>
+      </div>
+    </nav>
 
     <section class="section-block overview-section" id="overview" aria-labelledby="overview-heading">
       <div class="container">
@@ -537,8 +547,16 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>Working resource by Alexandru Tănăsel · ISH Secondary · <span data-year>2026</span></p>
-      <p>Not affiliated with ISTE</p>
+      <div class="footer-brand">
+        <strong>ISTE in Secondary</strong>
+        <p>Working resource by Alexandru Tănăsel · ISH Secondary · <span data-year>2026</span></p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="standards.html">Standards</a>
+        <a href="plan.html">Plan it</a>
+        <a href="https://iste.org/standards/students" target="_blank" rel="noopener">Official ISTE source ↗</a>
+      </nav>
+      <p class="footer-note">Independent resource. Not affiliated with ISTE.</p>
     </div>
   </footer>
 </body>

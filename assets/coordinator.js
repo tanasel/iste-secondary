@@ -279,7 +279,10 @@
     });
 
     dialog.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowRight" || event.key === "PageDown") {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeBriefing();
+      } else if (event.key === "ArrowRight" || event.key === "PageDown") {
         event.preventDefault();
         renderSlide(current + 1);
       } else if (event.key === "ArrowLeft" || event.key === "PageUp") {

@@ -4,7 +4,7 @@ A practical, secondary-focused guide to putting the **ISTE Standards for Student
 
 **Live:** https://tanasel.github.io/iste-secondary/
 
-An independent working resource by **Alexandru Tănăsel** (ISH Secondary), **not** official school policy and **not** affiliated with or endorsed by ISTE.
+An independent classroom toolkit by **Alexandru Tănăsel** (ISH Secondary), **not** official school policy and **not** affiliated with or endorsed by ISTE.
 
 The ISTE Standards for Students are © ISTE (International Society for Technology in Education). Standard names and descriptions are summarised and adapted here for secondary-classroom use. See [iste.org](https://iste.org) for the official standards.
 

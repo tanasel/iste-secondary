@@ -1592,7 +1592,7 @@ ol{
 
 /* Coordinator-first standards experience */
 .coordinator-page .coordinator-hero{
-  padding:clamp(2.8rem,6vw,5.4rem) 0;
+  padding:clamp(2.2rem,3.8vw,3.4rem) 0;
   background-color:var(--paper);
 }
 
@@ -2455,7 +2455,7 @@ ol{
 }
 
 :target{
-  scroll-margin-top:9.5rem;
+  scroll-margin-top:8.25rem;
 }
 
 h1{
@@ -2474,7 +2474,7 @@ h3{
 
 .hero,
 .page-hero{
-  padding:clamp(2.8rem,5.2vw,4.6rem) 0;
+  padding:clamp(2.1rem,3.7vw,3.2rem) 0;
 }
 
 .hero-layout{
@@ -2641,7 +2641,7 @@ h3{
   min-height:46px;
   padding:.72rem .85rem;
   font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
-  font-size:.84rem;
+  font-size:.875rem;
   font-weight:700;
   line-height:1.2;
   white-space:nowrap;
@@ -2666,17 +2666,23 @@ h3{
   color:#111111;
 }
 
+.page-jump-inner a[aria-current="location"]{
+  background:var(--cyan);
+  box-shadow:inset 0 -4px 0 #111111;
+  color:#111111;
+}
+
 .site-page main > .section-block:nth-of-type(even){
   background-color:var(--surface);
   background-image:none;
 }
 
 .section-block{
-  padding:clamp(2.8rem,5.7vw,4.7rem) 0;
+  padding:clamp(2.25rem,4vw,3.5rem) 0;
 }
 
 .section-heading{
-  max-width:860px;
+  max-width:none;
   padding-right:5rem;
 }
 
@@ -2736,7 +2742,7 @@ h3{
 }
 
 .ai-map-grid .info-card{
-  min-height:260px;
+  min-height:200px;
 }
 
 .resource-grid .teaser-card{
@@ -2817,6 +2823,35 @@ h3{
 
 .about-grid{
   max-width:none;
+}
+
+.roadmap-list a{
+  display:grid;
+  min-height:100%;
+  gap:.25rem;
+  padding:1rem 1.1rem;
+  color:#111111;
+  text-decoration:none;
+}
+
+.roadmap-list a:hover,
+.roadmap-list a:focus-visible{
+  background:rgba(255,255,255,.38);
+}
+
+.roadmap-list a strong{
+  font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
+  font-size:1.05rem;
+}
+
+.roadmap-list a span{
+  font-size:.94rem;
+  font-weight:600;
+  line-height:1.45;
+}
+
+.roadmap-list li{
+  padding:0;
 }
 
 .about-grid #contact a{
@@ -2905,6 +2940,10 @@ h3{
   .about-grid{
     display:grid;
     grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr);
+    grid-template-areas:
+      "purpose sources"
+      "contact sources";
+    align-items:start;
     gap:1.5rem;
   }
 
@@ -2912,9 +2951,9 @@ h3{
     margin:0;
   }
 
-  .about-grid #contact{
-    grid-column:1 / -1;
-  }
+  .about-grid #purpose{ grid-area:purpose; }
+  .about-grid #sources{ grid-area:sources; }
+  .about-grid #contact{ grid-area:contact; }
 
   .footer-inner{
     grid-template-columns:minmax(260px, 1.1fr) minmax(280px, .9fr);
@@ -2933,6 +2972,14 @@ h3{
 }
 
 @media (min-width:920px){
+  .bento-grid .standard-card:first-child{
+    grid-row:auto;
+  }
+
+  .bento-grid .standard-card:nth-child(7){
+    grid-column:span 4;
+  }
+
   .cards-grid{
     grid-template-columns:repeat(3, minmax(0, 1fr));
   }

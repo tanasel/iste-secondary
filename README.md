@@ -1,6 +1,6 @@
 # ISTE in Secondary
 
-A practical, secondary-focused guide to putting the **ISTE Standards for Students** into classroom practice: what each standard looks like in real lessons, how to embed it across subjects, and how to use AI responsibly with privacy built in.
+A practical, secondary-focused guide for turning one existing unit and one **ISTE Standard for Students** into a clear student task, AI guardrail and piece of evidence.
 
 **Live:** https://tanasel.github.io/iste-secondary/
 
@@ -13,8 +13,8 @@ Static site: plain HTML, CSS and vanilla JS. No build step. Deploys to GitHub Pa
 
 | Page | Purpose |
 |------|---------|
-| `index.html` | Home + bento of the 7 standards |
-| `standards.html` | Each standard: what it means, secondary examples, "try this Monday", look-fors |
-| `ai.html` | Responsible AI in the classroom, mapped to the standards (privacy-first) |
-| `coaching.html` | A coaching pathway for colleagues |
-| `about.html` | About + attribution |
+| `index.html` | MYP, DP and CP routes plus all seven standards |
+| `task.html` | The 20-minute task, printable A4 sheet, filled examples and ManageBac note |
+| `standards.html` | Seven standards, classroom moves, evidence look-fors and subject lens |
+| `ai.html` | Teacher-controlled, privacy-first AI guardrails |
+| `plan.html` | Interactive lesson seed builder |

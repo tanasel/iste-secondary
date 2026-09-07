@@ -1,115 +1,105 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plan it | ISTE in Secondary</title>
-  <meta name="description" content="Pick an ISTE Standard, subject and year group to generate a secondary classroom activity and privacy-safe AI lesson prompt.">
+  <meta name="description" content="Choose an ISTE Student Standard, programme context and year to create a practical activity seed and privacy-safe planning prompt.">
   <meta property="og:title" content="Plan it | ISTE in Secondary">
-  <meta property="og:description" content="A practical classroom planning tool for turning ISTE Standards into secondary lesson ideas.">
+  <meta property="og:description" content="Build one practical lesson seed from a standard and an existing unit.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://tanasel.github.io/iste-secondary/assets/og-iste-coordinator.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://tanasel.github.io/iste-secondary/assets/og-iste-secondary.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tanasel.github.io/iste-secondary/assets/og-iste-coordinator.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("ishacademy:contrast") === "high") document.documentElement.setAttribute("data-contrast", "high");
+        if (localStorage.getItem("ishacademy:font") === "dyslexic") document.documentElement.setAttribute("data-font", "dyslexic");
+      } catch (error) {}
+    }());
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=20260831d">
-  <script src="assets/plan-data.js?v=20260831d"></script>
-  <script src="assets/app.js?v=20260831d" defer></script>
-  <script src="assets/plan.js?v=20260831d" defer></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20260907a">
+  <script src="assets/plan-data.js?v=20260907a"></script>
+  <script src="assets/app.js?v=20260907a" defer></script>
+  <script src="assets/plan.js?v=20260907a" defer></script>
 </head>
-<body class="site-page page-plan">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <svg class="svg-sprite" aria-hidden="true" focusable="false">
-    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-sun" viewBox="0 0 24 24"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.4-1.4M3.65 20.35l1.4-1.4m0-13.9-1.4-1.4m16.7 16.7-1.4-1.4M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A7.5 7.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  </svg>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="wordmark" href="index.html" aria-label="ISTE in Secondary home">ISTE <strong>in Secondary</strong></a>
-      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-        <svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"></use></svg>
-        <svg class="icon icon-close" aria-hidden="true"><use href="#icon-close"></use></svg>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="standards.html">Standards</a>
-        <a href="ai.html">AI in the Classroom</a>
-        <a href="coaching.html">Coaching</a>
-        <a href="plan.html" aria-current="page">Plan it</a>
-        <a href="index.html#for-ish">For ISH</a>
-        <a href="about.html">About</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
-          <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
-          <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
-          <span class="sr-only">Toggle theme</span>
-        </button>
-      </nav>
+  <header class="academy-header">
+    <div class="academy-top">
+      <a href="https://www.ish.academy/innovate/" target="_top" aria-label="ISH Academy Innovate home">
+        <img class="academy-wordmark" src="assets/brand/ish-academy-wordmark-white-crimson-c.png" alt="ISH Academy">
+      </a>
+      <img class="school-wordmark" src="assets/brand/ish-logo-horizontal-white.png" alt="International School of The Hague">
+      <div class="reading-tools" role="group" aria-label="Reading preferences">
+        <button class="reading-switch" type="button" data-ish-toggle="contrast" aria-pressed="false">Contrast: <span data-ish-state>Default</span></button>
+        <button class="reading-switch" type="button" data-ish-toggle="font" aria-pressed="false">Font: <span data-ish-state>Default</span></button>
+      </div>
+      <p class="sr-only" id="ish-preference-status" aria-live="polite"></p>
+    </div>
+    <nav class="academy-sections" aria-label="ISH Academy sections">
+      <a href="https://www.ish.academy/inform/" target="_top">Inform</a>
+      <a href="https://www.ish.academy/innovate/" target="_top" aria-current="page">Innovate</a>
+      <a href="https://www.ish.academy/learn/" target="_top">Learn</a>
+    </nav>
+    <div class="resource-bar">
+      <div class="resource-bar__inner shell">
+        <a class="resource-mark" href="index.html">ISTE <strong>in Secondary</strong></a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open resource menu" aria-expanded="false" aria-controls="resource-nav">Menu</button>
+        <nav class="resource-nav" id="resource-nav" aria-label="Resource navigation">
+          <a href="index.html">Start</a>
+          <a href="task.html">The task</a>
+          <a href="standards.html">Standards</a>
+          <a href="ai.html">Responsible AI</a>
+          <a href="plan.html" aria-current="page">Plan it</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="page-hero">
-      <div class="container hero-layout">
-        <svg class="motif motif-hero motif-hero-a" aria-hidden="true" focusable="false" viewBox="0 0 160 120"><circle class="motif-dot" cx="24" cy="24" r="10"/><circle class="motif-dot motif-dot-alt" cx="52" cy="24" r="10"/><circle class="motif-dot" cx="24" cy="52" r="10"/><path class="motif-squiggle" d="M76 30c22-22 42 22 66 0"/><path class="motif-triangle" d="M24 102 44 70l20 32z"/><path class="motif-star" d="m118 62 8 18 18 8-18 8-8 18-8-18-18-8 18-8z"/></svg>
-        <svg class="motif motif-hero motif-hero-b" aria-hidden="true" focusable="false" viewBox="0 0 140 80"><path class="motif-zig" d="M10 52 30 18l20 34 20-34 20 34 20-34 20 34"/><rect class="motif-block" x="16" y="8" width="22" height="22" rx="0"/><circle class="motif-dot motif-dot-alt" cx="116" cy="18" r="10"/></svg>
-        <div class="hero-copy">
-          <span class="overline">CLASSROOM TOOL</span>
-          <h1>Plan it: a standard, a subject, a starting point</h1>
-          <p class="lede">Pick a standard, your subject and year group. You'll get a ready secondary activity and an AI prompt you can paste straight into a school-approved tool, with privacy built in.</p>
+    <section class="hero">
+      <div class="hero__inner shell">
+        <div class="hero__copy">
+          <p class="eyebrow">Lesson seed builder</p>
+          <h1>Start from the unit you already teach.</h1>
+          <p class="lede">Choose a programme context, one standard and one unit area. The tool returns a starting activity and an editable AI planning prompt with a privacy reminder.</p>
+          <div class="button-row">
+            <a class="button button--light" href="#planner">Open the builder</a>
+            <a class="button button--primary" href="task.html">Use the four-line task</a>
+          </div>
         </div>
-
-        <aside class="hero-guide hero-guide-violet" aria-labelledby="plan-output-title">
-          <span class="mini-label">YOU'LL LEAVE WITH</span>
-          <h2 id="plan-output-title">One practical lesson seed.</h2>
-          <ul class="hero-check-list">
-            <li>A subject-specific activity.</li>
-            <li>An editable planning prompt.</li>
-            <li>A clear privacy reminder.</li>
-          </ul>
-          <a class="text-link" href="#planner">Start planning →</a>
+        <aside class="hero__aside">
+          <p class="label">Teacher remains in control</p>
+          <h2>Seed, not finished plan.</h2>
+          <p>Adapt the suggestion to your learners, programme requirements, subject criteria and current school guidance.</p>
         </aside>
       </div>
     </section>
 
-    <nav class="page-jump-nav" aria-label="On this page">
-      <div class="container page-jump-inner">
-        <span>On this page</span>
-        <a href="#planner">Lesson seed builder</a>
-        <a href="standards.html#subject-lens">Browse by subject</a>
-        <a href="ai.html#privacy">AI safeguards</a>
-      </div>
-    </nav>
-
-    <section class="section-block" id="planner" aria-labelledby="plan-tool-heading">
-      <div class="container">
+    <section class="section section--surface" id="planner" aria-labelledby="planner-title">
+      <div class="shell">
         <div class="section-heading">
-          <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>
-          <span class="section-kicker">Build a lesson seed</span>
-          <h2 id="plan-tool-heading">Four choices. One usable starting point.</h2>
-          <p>Choose the context you already know. The tool combines it with one verified activity from the site.</p>
+          <span class="section-number" aria-hidden="true">01</span>
+          <p class="label">Plan it</p>
+          <h2 id="planner-title">Four choices, one usable starting point</h2>
+          <p>The examples come from the site’s subject and programme mappings. Check and adapt every generated prompt before using it.</p>
         </div>
 
         <div class="plan-steps" aria-label="How the planner works">
-          <span><strong>1</strong> Choose context</span>
-          <span><strong>2</strong> Generate a seed</span>
-          <span><strong>3</strong> Adapt with judgment</span>
+          <span><strong>1.</strong> Choose context</span>
+          <span><strong>2.</strong> Generate a seed</span>
+          <span><strong>3.</strong> Adapt with judgement</span>
         </div>
 
         <form class="tool-card plan-form" data-plan-tool novalidate>
           <div class="programme-control">
             <span class="programme-label" id="plan-programme-label">Programme</span>
             <div class="programme-options" role="radiogroup" aria-labelledby="plan-programme-label" data-programme-picker>
-              <button class="programme-option" type="button" role="radio" aria-checked="true" data-programme-option="myp">MYP (Years 7–11)</button>
-              <button class="programme-option" type="button" role="radio" aria-checked="false" data-programme-option="dpcp">DP / CP (Years 12–13)</button>
+              <button class="programme-option" type="button" role="radio" aria-checked="true" data-programme-option="myp">MYP, Years 7 to 11</button>
+              <button class="programme-option" type="button" role="radio" aria-checked="false" data-programme-option="dpcp">DP or CP, Years 12 to 13</button>
             </div>
           </div>
           <div class="form-grid">
@@ -132,33 +122,53 @@
               </select>
             </div>
             <div class="field-group field-wide">
-              <label for="plan-topic">Topic or context (optional)</label>
-              <input id="plan-topic" name="topic" type="text" autocomplete="off" placeholder="e.g. climate systems, extended essay question, performance concept">
+              <label for="plan-topic">Topic or context, optional</label>
+              <input id="plan-topic" name="topic" type="text" autocomplete="off" placeholder="For example, climate systems or an investigation question">
             </div>
           </div>
           <p class="tool-error" data-plan-error aria-live="polite"></p>
-          <button class="button button-primary" type="button" data-plan-submit>Plan it</button>
+          <button class="button button--primary" type="button" data-plan-submit>Generate the lesson seed</button>
         </form>
 
         <section class="plan-results" data-plan-results aria-live="polite" tabindex="-1" aria-label="Plan it result" hidden></section>
       </div>
     </section>
+
+    <section class="section" aria-labelledby="after-title">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="section-number" aria-hidden="true">02</span>
+          <p class="label">After the seed</p>
+          <h2 id="after-title">Turn it into the four-line task</h2>
+        </div>
+        <div class="meeting-grid">
+          <div class="meeting-step"><strong>Unit</strong>Keep the learning purpose and programme requirements.</div>
+          <div class="meeting-step"><strong>Task</strong>Write two sentences directly to students.</div>
+          <div class="meeting-step"><strong>AI</strong>Name allowed, not allowed and how to cite.</div>
+          <div class="meeting-step"><strong>Evidence</strong>Collect one artefact that reveals the capability.</div>
+        </div>
+        <div class="button-row" style="margin-top: 2rem">
+          <a class="button button--primary" href="task.html">Open the task and examples</a>
+          <a class="button button--ghost" href="ai.html">Check the AI boundary</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <strong>ISTE in Secondary</strong>
-        <p>Practical classroom toolkit by Alexandru Tănăsel · ISH Secondary · Updated August <span data-year>2026</span></p>
+  <footer class="academy-footer">
+    <div class="shell">
+      <div class="footer-branding">
+        <img class="footer-academy" src="assets/brand/ish-academy-wordmark.png" alt="ISH Academy">
+        <img class="footer-school" src="assets/brand/ish-logo-horizontal.png" alt="International School of The Hague">
       </div>
+      <p class="footer-copy">Practical classroom resource by Alexandru Tănăsel, ISH Secondary. Updated <span data-year>2026</span>.</p>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
+        <a href="index.html">Start</a>
+        <a href="task.html">The task</a>
         <a href="standards.html">Standards</a>
-        <a href="standards.html#subject-lens">Subject lens</a>
-        <a href="ai.html">AI guidance</a>
-        <a href="coaching.html">Coaching</a>
+        <a href="ai.html">Responsible AI</a>
         <a href="plan.html">Plan it</a>
-        <a href="https://iste.org/standards/students" target="_blank" rel="noopener">Official ISTE source ↗</a>
+        <a href="https://www.ish.academy/innovate/" target="_top">ISH Academy Innovate</a>
       </nav>
       <p class="footer-note">Independent resource. Not affiliated with ISTE.</p>
     </div>

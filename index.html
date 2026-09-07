@@ -1,324 +1,194 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ISTE in Secondary | Classroom and coordinator toolkit</title>
-  <meta name="description" content="A practical secondary-school guide to putting the ISTE Standards for Students into classroom practice, with responsible AI and privacy built in.">
+  <title>ISTE in Secondary | One unit, one standard, one task</title>
+  <meta name="description" content="A practical 20-minute resource for ISH Secondary teachers to turn one ISTE Student Standard into a student-facing task.">
   <meta property="og:title" content="ISTE in Secondary">
-  <meta property="og:description" content="Putting the ISTE Standards to work in secondary classrooms through practical lesson ideas, coaching and responsible AI use.">
+  <meta property="og:description" content="One unit, one ISTE Student Standard and one usable student task for MYP, DP or CP.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://tanasel.github.io/iste-secondary/assets/og-iste-coordinator.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://tanasel.github.io/iste-secondary/assets/og-iste-secondary.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tanasel.github.io/iste-secondary/assets/og-iste-coordinator.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("ishacademy:contrast") === "high") document.documentElement.setAttribute("data-contrast", "high");
+        if (localStorage.getItem("ishacademy:font") === "dyslexic") document.documentElement.setAttribute("data-font", "dyslexic");
+      } catch (error) {}
+    }());
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=20260831d">
-  <script src="assets/app.js?v=20260831d" defer></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20260907a">
+  <script src="assets/app.js?v=20260907a" defer></script>
 </head>
-<body class="site-page page-home">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <svg class="svg-sprite" aria-hidden="true" focusable="false">
-    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-sun" viewBox="0 0 24 24"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.4-1.4M3.65 20.35l1.4-1.4m0-13.9-1.4-1.4m16.7 16.7-1.4-1.4M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A7.5 7.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2 2 4-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8 14a6 6 0 1 1 8 0c-.8.7-1.2 1.5-1.2 2.5H9.2c0-1-.4-1.8-1.2-2.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-layout" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M10 10v11" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="icon-data" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m7 15 4-4 3 3 5-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-6a8 8 0 1 1 18-5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 14h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM21 21v-2a4 4 0 0 0-3-3.85M16 3.2a4 4 0 0 1 0 7.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  </svg>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="wordmark" href="index.html" aria-label="ISTE in Secondary home">ISTE <strong>in Secondary</strong></a>
-      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-        <svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"></use></svg>
-        <svg class="icon icon-close" aria-hidden="true"><use href="#icon-close"></use></svg>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="standards.html">Standards</a>
-        <a href="ai.html">AI in the Classroom</a>
-        <a href="coaching.html">Coaching</a>
-        <a href="plan.html">Plan it</a>
-        <a href="index.html#for-ish">For ISH</a>
-        <a href="about.html">About</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
-          <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
-          <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
-          <span class="sr-only">Toggle theme</span>
-        </button>
-      </nav>
+  <header class="academy-header">
+    <div class="academy-top">
+      <a href="https://www.ish.academy/innovate/" target="_top" aria-label="ISH Academy Innovate home">
+        <img class="academy-wordmark" src="assets/brand/ish-academy-wordmark-white-crimson-c.png" alt="ISH Academy">
+      </a>
+      <img class="school-wordmark" src="assets/brand/ish-logo-horizontal-white.png" alt="International School of The Hague">
+      <div class="reading-tools" role="group" aria-label="Reading preferences">
+        <button class="reading-switch" type="button" data-ish-toggle="contrast" aria-pressed="false">Contrast: <span data-ish-state>Default</span></button>
+        <button class="reading-switch" type="button" data-ish-toggle="font" aria-pressed="false">Font: <span data-ish-state>Default</span></button>
+      </div>
+      <p class="sr-only" id="ish-preference-status" aria-live="polite"></p>
+    </div>
+    <nav class="academy-sections" aria-label="ISH Academy sections">
+      <a href="https://www.ish.academy/inform/" target="_top">Inform</a>
+      <a href="https://www.ish.academy/innovate/" target="_top" aria-current="page">Innovate</a>
+      <a href="https://www.ish.academy/learn/" target="_top">Learn</a>
+    </nav>
+    <div class="resource-bar">
+      <div class="resource-bar__inner shell">
+        <a class="resource-mark" href="index.html">ISTE <strong>in Secondary</strong></a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open resource menu" aria-expanded="false" aria-controls="resource-nav">Menu</button>
+        <nav class="resource-nav" id="resource-nav" aria-label="Resource navigation">
+          <a href="index.html" aria-current="page">Start</a>
+          <a href="task.html">The task</a>
+          <a href="standards.html">Standards</a>
+          <a href="ai.html">Responsible AI</a>
+          <a href="plan.html">Plan it</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero home-hero">
-      <div class="container hero-layout">
-        <svg class="motif motif-hero motif-hero-a" aria-hidden="true" focusable="false" viewBox="0 0 160 120"><circle class="motif-dot" cx="24" cy="24" r="10"/><circle class="motif-dot motif-dot-alt" cx="52" cy="24" r="10"/><circle class="motif-dot" cx="24" cy="52" r="10"/><path class="motif-squiggle" d="M76 30c22-22 42 22 66 0"/><path class="motif-triangle" d="M24 102 44 70l20 32z"/><path class="motif-star" d="m118 62 8 18 18 8-18 8-8 18-8-18-18-8 18-8z"/></svg>
-        <svg class="motif motif-hero motif-hero-b" aria-hidden="true" focusable="false" viewBox="0 0 140 80"><path class="motif-zig" d="M10 52 30 18l20 34 20-34 20 34 20-34 20 34"/><rect class="motif-block" x="16" y="8" width="22" height="22" rx="0"/><circle class="motif-dot motif-dot-alt" cx="116" cy="18" r="10"/></svg>
-        <div class="hero-copy">
-          <span class="overline">A PRACTICAL ISH SECONDARY TOOLKIT</span>
-          <h1>Putting the ISTE Standards to work across ISH Secondary</h1>
-          <p class="lede">A practical guide for teachers and subject coordinators: see the standards in real lessons, explore them through any MYP subject and use AI responsibly with privacy built in.</p>
+    <section class="hero">
+      <div class="hero__inner shell">
+        <div class="hero__copy">
+          <p class="eyebrow">ISH Academy / Innovate / ISTE in Secondary</p>
+          <h1>One unit. One standard. One student task.</h1>
+          <p class="lede">A practical resource for MYP, DP and CP teachers. Leave a 20-minute department meeting with a task you can use this term.</p>
           <div class="button-row">
-            <a class="button button-primary" href="standards.html?briefing=1">Open the 5-minute briefing</a>
-            <a class="button button-ghost" href="standards.html#subject-lens">Choose your subject</a>
+            <a class="button button--light" href="task.html">Start the 20-minute task</a>
+            <a class="button button--primary" href="standards.html">Browse all seven standards</a>
           </div>
-          <p class="hero-credit">An independent classroom toolkit by Alexandru Tănăsel · ISH Secondary</p>
         </div>
-
-        <aside class="hero-guide hero-guide-cyan" aria-labelledby="start-route-title">
-          <span class="mini-label">START WHERE YOU ARE</span>
-          <h2 id="start-route-title">Choose the route that fits.</h2>
-          <div class="hero-routes">
-            <a href="standards.html?briefing=1"><strong>Coordinators</strong><span>Brief the framework in five minutes.</span></a>
-            <a href="standards.html#subject-lens"><strong>Teachers</strong><span>See all seven through one subject.</span></a>
-            <a href="coaching.html"><strong>Coaches</strong><span>Move from awareness to classroom evidence.</span></a>
-          </div>
+        <aside class="hero__aside" aria-labelledby="meeting-result">
+          <p class="label">The result</p>
+          <h2 id="meeting-result">Four lines, ready to teach.</h2>
+          <p>Two sentences for students. One AI guardrail. One piece of evidence to collect.</p>
         </aside>
       </div>
     </section>
 
-    <nav class="page-jump-nav" aria-label="On this page">
-      <div class="container page-jump-inner">
-        <span>On this page</span>
-        <a href="#standards">Seven standards</a>
-        <a href="#for-ish">ISH alignment</a>
-        <a href="#how-to-use">How to use it</a>
-        <a href="#roadmap">Department moves</a>
-        <a href="#responsible-ai">Responsible AI</a>
-      </div>
-    </nav>
-
-    <section class="section-block" id="standards" aria-labelledby="standards-heading">
-      <div class="container">
+    <section class="section section--surface" aria-labelledby="routes-title">
+      <div class="shell">
         <div class="section-heading">
-          <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>
-          <span class="section-kicker">The seven standards</span>
-          <h2 id="standards-heading">The seven standards</h2>
-          <p>Each card links to practical classroom ideas, a quick Monday activity and evidence to look for in secondary lessons.</p>
+          <span class="section-number" aria-hidden="true">01</span>
+          <p class="label">Choose your programme</p>
+          <h2 id="routes-title">Three routes into the same seven standards</h2>
+          <p>The standards add a student capability lens. They do not replace programme requirements, subject criteria or teacher judgement.</p>
         </div>
-        <div class="bento-grid">
-          <a class="standard-card s1 featured" href="standards.html#s1">
-            <div class="card-top">
-              <span class="standard-number">1.1</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-target"></use></svg></span>
-              <span class="featured-tag">Start here</span>
-            </div>
-            <div>
-              <h3>Empowered Learner</h3>
-              <p>Students set goals, seek feedback, and own how they learn.</p>
-              <p class="featured-extra">The foundation for every other standard. Learners who drive their own progress get more from the research, creativity and collaboration that follow.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-          <a class="standard-card s2" href="standards.html#s2">
-            <div class="card-top">
-              <span class="standard-number">1.2</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg></span>
-            </div>
-            <div>
-              <h3>Digital Citizen</h3>
-              <p>Students contribute positively, safely and ethically to their digital communities.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-          <a class="standard-card s3" href="standards.html#s3">
-            <div class="card-top">
-              <span class="standard-number">1.3</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg></span>
-            </div>
-            <div>
-              <h3>Knowledge Constructor</h3>
-              <p>Students research critically and build their own understanding.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-          <a class="standard-card s4" href="standards.html#s4">
-            <div class="card-top">
-              <span class="standard-number">1.4</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-layout"></use></svg></span>
-            </div>
-            <div>
-              <h3>Innovative Designer</h3>
-              <p>Students use a design process to solve real problems.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-          <a class="standard-card s5" href="standards.html#s5">
-            <div class="card-top">
-              <span class="standard-number">1.5</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-data"></use></svg></span>
-            </div>
-            <div>
-              <h3>Computational Thinker</h3>
-              <p>Students break down problems and use data and algorithms.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-          <a class="standard-card s6" href="standards.html#s6">
-            <div class="card-top">
-              <span class="standard-number">1.6</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg></span>
-            </div>
-            <div>
-              <h3>Creative Communicator</h3>
-              <p>Students choose the right tools to communicate clearly and creatively.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-          <a class="standard-card s7" href="standards.html#s7">
-            <div class="card-top">
-              <span class="standard-number">1.7</span>
-              <span class="icon-chip"><svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg></span>
-            </div>
-            <div>
-              <h3>Global Collaborator</h3>
-              <p>Students collaborate and broaden perspectives with digital tools.</p>
-            </div>
-            <span class="card-link">See classroom ideas &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-block" id="for-ish" aria-labelledby="for-ish-heading">
-      <div class="container">
-        <div class="section-heading">
-          <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>
-          <span class="section-kicker">MADE FOR ISH</span>
-          <h2 id="for-ish-heading">Built for ISH Secondary</h2>
-          <p>This isn't a foreign framework bolted on. ISH already names these capabilities in its public Guiding Statements, Community Profile and 'Technology at ISH' attributes: this resource turns that shared language into Monday-morning practice.</p>
-        </div>
-        <div class="cards-grid alignment-grid">
-          <article class="info-card s1">
-            <h3>ISH</h3>
-            <p>empowered learners · knowledge constructors</p>
-            <h3>ISTE</h3>
-            <p>Empowered Learner · Knowledge Constructor</p>
+        <div class="route-grid enter">
+          <article class="card card--myp">
+            <p class="chip">MYP teacher</p>
+            <h3>Make the capability visible through ATL and Design.</h3>
+            <p>Choose one standard that fits an existing unit. Name the matching ATL skill, then use a short design cycle when students need to investigate, make, test or improve something.</p>
+            <ul>
+              <li>ATL gives the skill language.</li>
+              <li>Design makes iteration visible.</li>
+              <li>Your subject criteria remain the assessment frame.</li>
+            </ul>
+            <a href="task.html#myp-example">See the filled MYP example</a>
           </article>
-          <article class="info-card s2">
-            <h3>ISH digital-citizenship pledge</h3>
-            <p>safe, responsible, respectful</p>
-            <h3>ISTE</h3>
-            <p>Digital Citizen</p>
+          <article class="card card--dp">
+            <p class="chip">DP teacher</p>
+            <h3>Use the standard as a process lens in TOK, EE or an IA.</h3>
+            <p>Choose the capability students need while researching, designing, analysing or communicating. Keep the official task and criteria unchanged.</p>
+            <ul>
+              <li>TOK: knowledge, sources and digital systems.</li>
+              <li>EE: learner ownership and critical research.</li>
+              <li>Subject IA: authentic methods, data and communication.</li>
+            </ul>
+            <a href="task.html#dp-example">See the filled DP example</a>
           </article>
-          <article class="info-card s4">
-            <h3>ISH</h3>
-            <p>innovative designers · computational thinkers</p>
-            <h3>ISTE</h3>
-            <p>Innovative Designer · Computational Thinker</p>
-          </article>
-          <article class="info-card s7">
-            <h3>ISH</h3>
-            <p>creative &amp; global collaborators</p>
-            <h3>ISTE</h3>
-            <p>Creative Communicator · Global Collaborator</p>
-          </article>
-          <article class="info-card s6">
-            <h3>ISH Community Profile</h3>
-            <p>critical &amp; ethical decision-makers · risk-takers &amp; innovators</p>
-            <h3>ISTE</h3>
-            <p>Digital Citizen + Innovative Designer</p>
-          </article>
-          <article class="info-card s3">
-            <h3>ISH Mission</h3>
-            <p>Curious · Connected · Compassionate</p>
-            <h3>ISTE</h3>
-            <p>the whole framework</p>
-          </article>
-        </div>
-        <p class="closing-line">Designed for <strong>MYP Years 7–11</strong> and the <strong>DP &amp; CP (Years 12–13)</strong>: mapping onto Approaches to Learning, the Personal Project, and at DP/CP the Extended Essay, TOK, CAS and the CP core. The teacher-facing side already runs through <strong>ISH Academy</strong>; this is the classroom-facing counterpart, on <strong>Google Workspace for Education</strong>.</p>
-        <p class="hero-credit">Drawn from ISH's public pages: <a href="https://www.ishthehague.nl/about/guiding-statements" target="_blank" rel="noopener">Guiding Statements</a> and <a href="https://www.ishthehague.nl/academic/technology-ish" target="_blank" rel="noopener">'Technology at ISH'</a>. An independent classroom resource, not official ISH policy.</p>
-      </div>
-    </section>
-
-    <section class="section-block" id="how-to-use" aria-labelledby="use-heading">
-      <div class="container">
-        <div class="section-heading">
-          <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>
-          <span class="section-kicker">Practical route</span>
-          <h2 id="use-heading">How to use this site</h2>
-        </div>
-        <div class="steps-grid">
-          <article class="step-card">
-            <span class="step-number">1</span>
-            <p><strong>Pick a standard</strong> that fits your unit.</p>
-          </article>
-          <article class="step-card">
-            <span class="step-number">2</span>
-            <p><strong>Steal a lesson idea</strong>: every standard has secondary examples and a “try this Monday”.</p>
-          </article>
-          <article class="step-card">
-            <span class="step-number">3</span>
-            <p><strong>Coach a colleague</strong>: share the page, model it together, look for the evidence.</p>
+          <article class="card card--cp">
+            <p class="chip">CP teacher</p>
+            <h3>Connect responsible digital practice to the CP core.</h3>
+            <p>Use one standard to sharpen how students research, create or collaborate in the Reflective Project and personal and professional skills.</p>
+            <ul>
+              <li>Reflective Project: perspectives, ethics and evidence.</li>
+              <li>Personal and professional skills: choices, teamwork and communication.</li>
+              <li>Career-related study: a real audience and usable outcome.</li>
+            </ul>
+            <a href="task.html#cp-example">See the filled CP example</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section-block" id="roadmap" aria-labelledby="roadmap-heading">
-      <div class="container">
+    <section class="section" aria-labelledby="standards-title">
+      <div class="shell">
         <div class="section-heading">
-          <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>
-          <span class="section-kicker">Department moves</span>
-          <h2 id="roadmap-heading">Choose one useful next move</h2>
-          <p>Every route below is ready now. Start with a real unit, one student capability and evidence you can bring back.</p>
+          <span class="section-number" aria-hidden="true">02</span>
+          <p class="label">Pick one, not seven</p>
+          <h2 id="standards-title">The ISTE Standards for Students</h2>
+          <p>Start with the student move your unit already needs. Open a standard for a classroom example and a clear evidence look-for.</p>
         </div>
-        <ul class="roadmap-list">
-          <li><a href="standards.html?briefing=1"><strong>Brief your department →</strong><span>Run the five-minute coordinator briefing.</span></a></li>
-          <li><a href="standards.html#subject-lens"><strong>See your subject →</strong><span>Open seven ready ideas through one MYP subject.</span></a></li>
-          <li><a href="plan.html"><strong>Plan one lesson →</strong><span>Combine a standard, subject, year group and topic.</span></a></li>
-          <li><a href="ai.html#privacy"><strong>Set AI guardrails →</strong><span>Agree the privacy and classroom-use boundaries first.</span></a></li>
-          <li><a href="coaching.html#self-check"><strong>Coach the follow-through →</strong><span>Model, try, review the evidence and adjust.</span></a></li>
-        </ul>
-        <p class="closing-line">Pick one route for one upcoming unit. The aim is a usable change, not another initiative.</p>
+        <div class="standards-grid enter">
+          <a class="standard-card" href="standards.html#s1"><span class="standard-number">1.1</span><h3>Empowered Learner</h3><p>Students set goals, use feedback and show what they can do.</p></a>
+          <a class="standard-card" href="standards.html#s2"><span class="standard-number">1.2</span><h3>Digital Citizen</h3><p>Students participate safely, ethically and responsibly.</p></a>
+          <a class="standard-card" href="standards.html#s3"><span class="standard-number">1.3</span><h3>Knowledge Constructor</h3><p>Students evaluate sources and build credible knowledge.</p></a>
+          <a class="standard-card" href="standards.html#s4"><span class="standard-number">1.4</span><h3>Innovative Designer</h3><p>Students use a design process to solve a real problem.</p></a>
+          <a class="standard-card" href="standards.html#s5"><span class="standard-number">1.5</span><h3>Computational Thinker</h3><p>Students use data, models and logical processes.</p></a>
+          <a class="standard-card" href="standards.html#s6"><span class="standard-number">1.6</span><h3>Creative Communicator</h3><p>Students choose formats and tools for a clear purpose.</p></a>
+          <a class="standard-card" href="standards.html#s7"><span class="standard-number">1.7</span><h3>Global Collaborator</h3><p>Students use digital tools to work across perspectives.</p></a>
+        </div>
       </div>
     </section>
 
-    <section class="section-block" id="responsible-ai" aria-labelledby="ai-heading">
-      <div class="container">
+    <section class="section section--blue" aria-labelledby="twenty-title">
+      <div class="shell">
         <div class="section-heading">
-          <svg class="motif motif-heading" aria-hidden="true" focusable="false" viewBox="0 0 96 96"><path class="motif-star" d="m44 8 8 22 22 8-22 8-8 22-8-22-22-8 22-8z"/><path class="motif-zig" d="m12 78 14-16 14 16 14-16 14 16"/><circle class="motif-dot" cx="78" cy="20" r="8"/></svg>
-          <span class="section-kicker">AI in practice</span>
-          <h2 id="ai-heading">Responsible AI in class</h2>
+          <span class="section-number" aria-hidden="true">03</span>
+          <p class="label">A department meeting that makes something</p>
+          <h2 id="twenty-title">Twenty minutes, start to finish</h2>
         </div>
-        <a class="teaser-card" href="ai.html">
-          <span class="icon-chip s3"><svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg></span>
-          <span>
-            <strong>AI belongs to several standards at once</strong>: used well, it strengthens Knowledge Constructor, Creative Communicator and Digital Citizen. Used badly, it undermines all three. <span>See the classroom guide &rarr;</span>
-          </span>
-        </a>
+        <div class="meeting-grid">
+          <div class="meeting-step"><strong>2 min</strong>Bring one unit you teach this term.</div>
+          <div class="meeting-step"><strong>4 min</strong>Pick the one student standard that earns its place.</div>
+          <div class="meeting-step"><strong>10 min</strong>Write the task, AI guardrail and evidence.</div>
+          <div class="meeting-step"><strong>4 min</strong>Swap, test for clarity and place it in ManageBac.</div>
+        </div>
+        <div class="button-row" style="margin-top: 2rem">
+          <a class="button button--primary" href="task.html">Open the task and printable sheet</a>
+          <a class="button button--ghost" href="plan.html">Use the lesson seed builder</a>
+        </div>
       </div>
     </section>
 
+    <section class="section" aria-labelledby="source-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="label">Source and scope</p>
+          <h2 id="source-title">A teacher resource, grounded in the official standard names</h2>
+          <p>The seven names and numbering follow the ISTE Standards for Students. Classroom examples and programme connections here are practical ISH Academy guidance, not additions to IB assessment requirements.</p>
+        </div>
+        <p><a href="https://iste.org/standards/students" target="_blank" rel="noopener">Open the official ISTE Standards for Students source</a></p>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <strong>ISTE in Secondary</strong>
-        <p>Practical classroom toolkit by Alexandru Tănăsel · ISH Secondary · Updated August <span data-year>2026</span></p>
+  <footer class="academy-footer">
+    <div class="shell">
+      <div class="footer-branding">
+        <img class="footer-academy" src="assets/brand/ish-academy-wordmark.png" alt="ISH Academy">
+        <img class="footer-school" src="assets/brand/ish-logo-horizontal.png" alt="International School of The Hague">
       </div>
+      <p class="footer-copy">Practical classroom resource by Alexandru Tănăsel, ISH Secondary. Updated <span data-year>2026</span>.</p>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
+        <a href="index.html">Start</a>
+        <a href="task.html">The task</a>
         <a href="standards.html">Standards</a>
-        <a href="standards.html#subject-lens">Subject lens</a>
-        <a href="ai.html">AI guidance</a>
-        <a href="coaching.html">Coaching</a>
+        <a href="ai.html">Responsible AI</a>
         <a href="plan.html">Plan it</a>
-        <a href="https://iste.org/standards/students" target="_blank" rel="noopener">Official ISTE source ↗</a>
+        <a href="https://www.ish.academy/innovate/" target="_top">ISH Academy Innovate</a>
       </nav>
       <p class="footer-note">Independent resource. Not affiliated with ISTE.</p>
     </div>

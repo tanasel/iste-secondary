@@ -1,0 +1,172 @@
+/* ISH tool kit v1.0.0 (1 Oct 2026). The ISH Style Guide (ISH Communications, 31 March 2026) for school tools and pages.
+   Build: python3 build_kit.py  ->  ish-kit.css (this file plus the generated @font-face block).
+   Use: link ish-kit.css, load ish-kit-prepaint.js in <head> and ish-kit.js before </body>.
+   Fonts: Meta Pro Condensed if the page also loads the Adobe kit (ish.academy only), otherwise the bundled Fira Sans
+   Condensed (exception E3, decided 1 Oct 2026). Never Adobe Fonts on pupil screens.
+   Colour story: ISH blue = links and actions, ISH red = where you are / focus / stop, green = Curious,
+   orange = Connected, purple = Compassionate (set html[data-commitment] or any element's data-commitment). */
+
+/* Fira Sans Condensed (SIL OFL 1.1, fonts/OFL-FiraSansCondensed.txt): Book 400 to Extra Bold 800. */
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:800;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-800-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-400-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:italic;font-weight:700;font-display:swap;src:url("fonts/fira-sans-condensed-latin-ext-700-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/fira-sans-condensed-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/fira-sans-condensed-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/fira-sans-condensed-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/fira-sans-condensed-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fira Sans Condensed";font-style:normal;font-weight:800;font-display:swap;src:url("fonts/fira-sans-condensed-latin-800-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fira Sans Condensed";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/fira-sans-condensed-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fira Sans Condensed";font-style:italic;font-weight:700;font-display:swap;src:url("fonts/fira-sans-condensed-latin-700-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+/* OpenDyslexic (SIL OFL 1.1): the Font reading mode (exception E1). */
+@font-face{font-family:"OpenDyslexic";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/OpenDyslexic-Regular.woff2") format("woff2");}
+@font-face{font-family:"OpenDyslexic";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/OpenDyslexic-Bold.woff2") format("woff2");}
+
+:root {
+  --ish-red: #c22e48; --ish-blue: #1f5285; --ish-green: #80c63f; --ish-orange: #f58220; --ish-purple: #8763ab;
+  --ish-ext-dark-yellow: #f8b126; --ish-ext-pink: #f19eae; --ish-ext-dark-green: #007041;
+  --ish-ink: #172b3e; --ish-muted: #43586c; --ish-rule: #d5dee7; --ish-surface: #f1f5f8; --ish-paper: #ffffff;
+  --ish-tint-blue: #eef3f7; --ish-tint-red: #fbf0f2; --ish-tint-green: #f2f9e9; --ish-tint-orange: #fff3e8; --ish-tint-purple: #f5f0f8;
+  --ish-text: var(--ish-ink); --ish-link: var(--ish-blue); --ish-action: var(--ish-blue); --ish-on-action: #ffffff;
+  --ish-here: var(--ish-red); --ish-focus: var(--ish-red); --ish-stop: var(--ish-red); --ish-on-stop: #ffffff;
+  --ish-accent: var(--ish-blue); --ish-accent-tint: var(--ish-tint-blue); --ish-on-accent: #ffffff;
+  --ish-font: "Fira Sans Condensed", sans-serif; /* bundled; pages that load the Adobe kit set html[data-ish-font="meta"] */
+  --ish-font-dyslexic: "OpenDyslexic", sans-serif;
+  --ish-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --ish-weight-book: 400; --ish-weight-medium: 500; --ish-weight-semi: 600; --ish-weight-bold: 700; --ish-weight-extra: 800;
+  --ish-tracking: 0; --ish-line-body: 1.6; --ish-line-heading: 1.2;
+  --ish-radius: 0.3rem; --ish-radius-panel: 1.4rem 0.5rem 2.6rem 0.5rem; --ish-rule-width: 1px; --ish-touch: 2.75rem;
+  --ish-content: 66rem; --ish-gutter: clamp(1rem, 3vw, 2rem);
+}
+html[data-ish-font="meta"] { --ish-font: "ff-meta-web-pro-condensed", "Fira Sans Condensed", sans-serif; }
+[data-commitment="curious"] { --ish-accent: var(--ish-green); --ish-accent-tint: var(--ish-tint-green); --ish-on-accent: var(--ish-ink); }
+[data-commitment="connected"] { --ish-accent: var(--ish-orange); --ish-accent-tint: var(--ish-tint-orange); --ish-on-accent: var(--ish-ink); }
+[data-commitment="compassionate"] { --ish-accent: var(--ish-purple); --ish-accent-tint: var(--ish-tint-purple); --ish-on-accent: #ffffff; }
+
+/* Base */
+html { color: var(--ish-text); background: var(--ish-paper); font-family: var(--ish-font); font-weight: var(--ish-weight-book);
+  letter-spacing: var(--ish-tracking); line-height: var(--ish-line-body); -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+h1, h2, h3, h4 { line-height: var(--ish-line-heading); font-weight: var(--ish-weight-bold); letter-spacing: 0; text-transform: none; }
+a { color: var(--ish-link); text-underline-offset: 0.15em; }
+p, li, td, th, dd, dt, figcaption, label, summary { overflow-wrap: anywhere; }
+:focus-visible { outline: 3px solid var(--ish-focus); outline-offset: 2px; }
+.ish-sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.ish-shell { max-width: var(--ish-content); margin: 0 auto; padding: 0 var(--ish-gutter); }
+.ish-skip { position: absolute; left: -999px; top: 0; }
+.ish-skip:focus { left: 0.5rem; top: 0.5rem; z-index: 50; background: var(--ish-paper); padding: 0.5rem 0.75rem; border-radius: var(--ish-radius); }
+
+/* Masthead: tool name as plain text (no tool logos), reading switches, optional Style menu */
+.ish-masthead { background: var(--ish-paper); border-bottom: var(--ish-rule-width) solid var(--ish-rule); }
+.ish-masthead__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.ish-masthead__name { margin: 0; font-size: 1.5rem; font-weight: var(--ish-weight-bold); color: var(--ish-blue); text-decoration: none; }
+.ish-masthead__name small { display: block; font-size: 0.95rem; font-weight: var(--ish-weight-book); color: var(--ish-muted); }
+.ish-masthead__tools { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.ish-back { font-size: 1rem; }
+
+/* Staff navigation: Inform | Innovate | Learn (never on pupil screens) */
+.ish-sections { display: flex; gap: 1.5rem; flex-wrap: wrap; padding: 0 var(--ish-gutter); max-width: var(--ish-content); margin: 0 auto; }
+.ish-sections a { display: inline-block; padding: 0.6rem 0; color: var(--ish-text); text-decoration: none; border-bottom: 4px solid transparent; font-weight: var(--ish-weight-medium); }
+.ish-sections a[aria-current="page"] { border-bottom-color: var(--ish-here); color: var(--ish-blue); }
+
+/* Switches and Style menu */
+.ish-switch, .ish-style select { font: inherit; min-height: var(--ish-touch); padding: 0.3rem 0.8rem; background: var(--ish-paper);
+  color: var(--ish-blue); border: 1px solid var(--ish-blue); border-radius: var(--ish-radius); cursor: pointer; }
+.ish-switch[aria-pressed="true"] { background: var(--ish-blue); color: #ffffff; }
+.ish-style { display: inline-flex; gap: 0.4rem; align-items: center; }
+
+/* Hero with the guide's soft curve (one corner a little higher) */
+.ish-hero { position: relative; background: var(--ish-accent-tint); padding: 2rem 0 3.25rem; }
+.ish-hero--blue { background: var(--ish-blue); color: #ffffff; }
+.ish-hero h1 { margin: 0 0 0.5rem; font-size: clamp(2rem, 4vw, 3rem); font-weight: var(--ish-weight-extra); }
+.ish-hero p { margin: 0; max-width: 46rem; font-size: 1.15rem; }
+.ish-curve { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 2.75rem; display: block; color: var(--ish-paper); }
+
+/* Value pill: the word always travels with the colour */
+.ish-pill { display: inline-block; padding: 0.05rem 0.55rem; border-radius: var(--ish-radius); background: var(--ish-accent-tint);
+  border: 1px solid var(--ish-accent); color: var(--ish-text); font-weight: var(--ish-weight-semi); font-size: 0.95rem; }
+
+/* Cards */
+.ish-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
+.ish-card { background: var(--ish-paper); border: 1px solid var(--ish-rule); border-top: 5px solid var(--ish-accent);
+  border-radius: var(--ish-radius); padding: 1rem; }
+.ish-card h2, .ish-card h3 { margin-top: 0; }
+
+/* Buttons: blue acts, red only for stop or irreversible steps */
+.ish-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; box-sizing: border-box; min-height: var(--ish-touch);
+  padding: 0.55rem 1rem; font: inherit; font-weight: var(--ish-weight-semi); border-radius: var(--ish-radius); border: 1px solid var(--ish-action);
+  background: var(--ish-action); color: var(--ish-on-action); text-decoration: none; cursor: pointer; }
+.ish-btn + .ish-btn { margin-left: 0.5rem; }
+.ish-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.ish-actions .ish-btn + .ish-btn { margin-left: 0; }
+.ish-btn--quiet { background: var(--ish-paper); color: var(--ish-action); }
+.ish-btn--stop { background: var(--ish-stop); border-color: var(--ish-stop); color: var(--ish-on-stop); }
+.ish-btn[disabled], .ish-btn[aria-disabled="true"] { opacity: 1; background: var(--ish-surface); border-color: var(--ish-rule); color: var(--ish-muted); cursor: not-allowed; }
+
+/* Forms */
+.ish-field { display: grid; gap: 0.35rem; margin: 0.75rem 0; }
+.ish-input, .ish-select, .ish-textarea { font: inherit; padding: 0.5rem 0.65rem; border: 1px solid var(--ish-muted); border-radius: var(--ish-radius);
+  background: var(--ish-paper); color: var(--ish-text); min-height: var(--ish-touch); box-sizing: border-box; max-width: 100%; }
+.ish-field .ish-input, .ish-field .ish-select, .ish-field .ish-textarea { width: 100%; }
+.ish-input--code { font-family: var(--ish-font-mono); font-size: 1.4rem; letter-spacing: 0; text-transform: none; max-width: 14ch; } /* exception E4 */
+
+/* Guided steps (pickers and tutorials): neutral numbers, red marks where you are */
+.ish-steps { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin: 1rem 0; counter-reset: ish-step; }
+.ish-steps li { counter-increment: ish-step; display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.7rem 0.35rem 0.35rem;
+  border: 1px solid var(--ish-rule); border-radius: var(--ish-radius); background: var(--ish-paper); color: var(--ish-muted); }
+.ish-steps li::before { content: counter(ish-step); display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  background: var(--ish-surface); color: var(--ish-text); font-weight: var(--ish-weight-bold); }
+.ish-steps li[aria-current="step"] { color: var(--ish-text); border-color: var(--ish-here); border-bottom-width: 3px; }
+.ish-steps li[data-done="true"]::before { content: "\2713"; background: var(--ish-blue); color: #ffffff; }
+
+/* Results: icon and word first; blue go, neutral not yet, red stop (decision D2) */
+.ish-result { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.75rem; align-items: start; padding: 1rem;
+  border-radius: var(--ish-radius); border: 1px solid var(--ish-rule); background: var(--ish-paper); color: var(--ish-text); }
+.ish-result__icon { grid-row: span 2; display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  border: 2px solid currentColor; font-weight: var(--ish-weight-extra); font-size: 1.3rem; line-height: 1; }
+.ish-result__word { margin: 0; font-size: 1.5rem; font-weight: var(--ish-weight-extra); }
+.ish-result p { margin: 0; }
+.ish-result[data-status="go"] { background: var(--ish-blue); border-color: var(--ish-blue); color: #ffffff; }
+.ish-result[data-status="go"] a { color: #ffffff; }
+.ish-result[data-status="wait"] { background: var(--ish-paper); border-color: var(--ish-muted); color: var(--ish-text); }
+.ish-result[data-status="stop"] { background: var(--ish-red); border-color: var(--ish-red); color: #ffffff; }
+.ish-result[data-status="stop"] a { color: #ffffff; }
+
+/* Notes */
+.ish-note { border-left: 4px solid var(--ish-accent); background: var(--ish-accent-tint); padding: 0.75rem 1rem; border-radius: var(--ish-radius); }
+
+/* Footer: school logo bottom right; slogan or tagline, never both */
+.ish-footer { margin-top: 2rem; border-top: var(--ish-rule-width) solid var(--ish-rule); }
+.ish-footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1.25rem; }
+.ish-footer__brand { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-left: auto; }
+.ish-footer__brand img { height: 2.6rem; width: auto; }
+.ish-footer a { color: var(--ish-link); }
+
+/* Reading mode E1: high contrast */
+html[data-contrast="high"] {
+  --ish-text: #000000; --ish-link: #0000cc; --ish-action: #000000; --ish-on-action: #ffffff; --ish-here: #000000; --ish-focus: #000000;
+  --ish-stop: #000000; --ish-on-stop: #ffffff; --ish-accent: #000000; --ish-accent-tint: #ffffff; --ish-on-accent: #ffffff;
+  --ish-muted: #000000; --ish-rule: #000000; --ish-surface: #ffffff; --ish-rule-width: 2px;
+}
+html[data-contrast="high"] [data-commitment] { --ish-accent: #000000; --ish-accent-tint: #ffffff; --ish-on-accent: #ffffff; }
+html[data-contrast="high"] .ish-masthead__name, html[data-contrast="high"] .ish-sections a[aria-current="page"] { color: #000000; }
+html[data-contrast="high"] .ish-hero--blue { background: #000000; }
+html[data-contrast="high"] .ish-pill { background: #ffffff; color: #000000; border: 2px solid #000000; }
+html[data-contrast="high"] .ish-switch, html[data-contrast="high"] .ish-style select { color: #000000; border: 2px solid #000000; }
+html[data-contrast="high"] .ish-switch[aria-pressed="true"] { background: #000000; color: #ffffff; }
+html[data-contrast="high"] .ish-result[data-status="go"] { background: #000000; color: #ffffff; border: 2px solid #000000; }
+html[data-contrast="high"] .ish-result[data-status="wait"] { background: #ffffff; color: #000000; border: 3px dashed #000000; }
+html[data-contrast="high"] .ish-result[data-status="stop"] { background: #ffffff; color: #000000; border: 3px solid #000000; }
+html[data-contrast="high"] .ish-result a { color: inherit; }
+html[data-contrast="high"] .ish-steps li::before { background: #ffffff; border: 2px solid #000000; }
+html[data-contrast="high"] .ish-steps li[data-done="true"]::before { background: #000000; color: #ffffff; }
+
+/* Reading mode E1: dyslexia font */
+html[data-font="dyslexic"] { --ish-font: var(--ish-font-dyslexic); --ish-tracking: 0.05em; --ish-line-body: 1.78; }
+html[data-font="dyslexic"] em, html[data-font="dyslexic"] i { font-style: normal; font-weight: var(--ish-weight-bold); }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+@media print { .ish-switch, .ish-style, .ish-sections { display: none; } .ish-result { border: 2px solid #000000 !important; background: #ffffff !important; color: #000000 !important; } }

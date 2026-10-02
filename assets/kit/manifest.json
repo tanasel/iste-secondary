@@ -1,0 +1,30 @@
+{
+ "name": "ish-tool-kit",
+ "version": "1.0.0",
+ "files": {
+  "brand/ish-logo-white.png": "c9b5201b86125c1dabb8ddb1f5010ab537d0e729df410dc306c1f4136d395f7d",
+  "brand/ish-logo.png": "8fdd6004ce78d8003af1f1379eb5cdd1e5a9294cf92ac3a617fc05528dfcccd8",
+  "brand/official-slogan.png": "c60b24d5fa34d6a3a22bd43330463e49f22fb883956b155ca532d037972aaa30",
+  "demo.html": "a20b1554961013f7a352b582de339bfc7b41cd65223d6928505d8747adb9fdf4",
+  "fonts/OFL-FiraSansCondensed.txt": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+  "fonts/OpenDyslexic-Bold.woff2": "b534a0b84ef3cca941ebdb506ce3f4e0010aa4ef881271bac8b6959dbf694fbf",
+  "fonts/OpenDyslexic-Regular.woff2": "0441bc21071e42db57c217f93fbc48d3b55a2987c02814c94dc93621c42e8695",
+  "fonts/fira-sans-condensed-latin-400-italic.woff2": "06f93389f16a802ad49191fa60fd0053253c1da7d92326866ea7803946ed82ca",
+  "fonts/fira-sans-condensed-latin-400-normal.woff2": "73d6a1d1a9b43f27a99c2e699f39a585bbdb32710bfd5ef862ac0f34d4aa6b73",
+  "fonts/fira-sans-condensed-latin-500-normal.woff2": "d3c00b8e38ef705dad5f0417a004e2e927765ef8d504d1e3e35deec6e4ca19df",
+  "fonts/fira-sans-condensed-latin-600-normal.woff2": "d88604c4fe46a9ec509156e6abcb70275e24cf1273f37af8664d409a5d538914",
+  "fonts/fira-sans-condensed-latin-700-italic.woff2": "b6aff9839752fd42073a2a4846943ebaa274e757b8e5b4f047a0f56046a344e7",
+  "fonts/fira-sans-condensed-latin-700-normal.woff2": "e94b13bb20b4d7551a411b614abbc716b4b2e74dd7bb82c83e431a390cb21516",
+  "fonts/fira-sans-condensed-latin-800-normal.woff2": "9ea17252099605a32d182abb2649d92ae254846403f9af520ac60a0648fd53a0",
+  "fonts/fira-sans-condensed-latin-ext-400-italic.woff2": "98cf14bf468717ac465ec1545cacebf8a79b883699e650b43febb71e7baa804d",
+  "fonts/fira-sans-condensed-latin-ext-400-normal.woff2": "6b7502acf03e051edd9bae5bad84fa56ddaf09f4f4f375a28a3e85a76bd26a2a",
+  "fonts/fira-sans-condensed-latin-ext-500-normal.woff2": "37e582b376680d140fd867b2e75a8abf80f9937403f0041615f038e8446fa6a3",
+  "fonts/fira-sans-condensed-latin-ext-600-normal.woff2": "4edfdcc092a9f7fb278d68f73f1097ca7b3e620ba838a90f796cb38784d641cd",
+  "fonts/fira-sans-condensed-latin-ext-700-italic.woff2": "7641492262eadd710f6aa175409c8ed3634018f017b274580f36a20a873c1078",
+  "fonts/fira-sans-condensed-latin-ext-700-normal.woff2": "381638071ade904df85dff15b0b5558a4ee65b91498e02952d455a3d5aed54c6",
+  "fonts/fira-sans-condensed-latin-ext-800-normal.woff2": "d613a3b0bb5c435839c56a43322a065c882590807cf42b46e0f29e2be0a459c2",
+  "ish-kit-prepaint.js": "1b4877feb4fc5068b70efe26ba6f591f01677628cced41e7261ef7a599e3cf92",
+  "ish-kit.css": "48d3111e26c1238fa7c99165e4d80e8ddfa9ecc7db139fe7eab5f80ff89497e9",
+  "ish-kit.js": "dd07270ceb7129d4c28dd5a87299d636e4eabf4ee31eb2118a04415c50410e9e"
+ }
+}

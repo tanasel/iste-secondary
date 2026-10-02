@@ -54,6 +54,18 @@
     if (announce && status) status.textContent = control.announcement + (enabled ? " on" : " off");
   }
 
+  // Framed inside ISH Academy (page 1032): follow that page's Contrast and Font switches, sent with postMessage.
+  // Nothing is stored here: the Academy page keeps the choice.
+  window.addEventListener("message", function (event) {
+    if (event.origin !== "https://www.ish.academy") return;
+    var data = event.data;
+    if (!data || data.type !== "ish-prefs") return;
+    if (data.contrast === "high") root.setAttribute("data-contrast", "high");
+    else root.removeAttribute("data-contrast");
+    if (data.font === "dyslexic") root.setAttribute("data-font", "dyslexic");
+    else root.removeAttribute("data-font");
+  });
+
   Object.keys(controls).forEach(function (name) {
     var control = controls[name];
     if (!control.button) return;
